@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  /* Kzajo brand: blue #1A51A4, white, gray #6D6E71 */
+  --color-ink: #131c2b;
+  --color-ink-soft: #1d293d;
+  --color-steel: #6d6e71;
+  --color-steel-light: #97989b;
+  --color-mist: #c7c8ca;
+  --color-accent: #1a51a4;
+  --color-accent-dark: #123c7c;
+  --color-accent-light: #5a8bd6;
+  --color-maxter: #f97316;
+  --color-petromil: #004f9e;
+  --color-canvas: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-border: #e3e6ee;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-steel: var(--color-steel);
+  --color-steel-light: var(--color-steel-light);
+  --color-mist: var(--color-mist);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  --color-maxter: var(--color-maxter);
+  --color-petromil: var(--color-petromil);
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+
+  --font-heading: var(--font-fraunces);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-jakarta: var(--font-plus-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.colombia-wave {
+  background-image: linear-gradient(90deg, #ce1126, #003893, #fdd116, #ce1126);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: colombia-wave 8s linear infinite;
+}
+
+@keyframes colombia-wave {
+  to {
+    background-position: -300% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .colombia-wave {
+    animation: none;
+  }
+}
+
+.float-anim {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+.fab-pulse {
+  animation: fabPulse 2.5s infinite;
+}
+
+@keyframes fabPulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgba(26, 81, 164, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(26, 81, 164, 0.65);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab-pulse {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-anim {
+    animation: none;
+  }
+}

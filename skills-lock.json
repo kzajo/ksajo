@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-image-generation": {
+      "source": "halt-catch-fire/skills",
+      "sourceType": "github",
+      "skillPath": "tools/image/ai-image-generation/SKILL.md",
+      "computedHash": "a3382a2d38b9b3489d5a29b4e8990b85da067feb41c715f8eff523f700eb3b04"
+    }
+  }
+}
