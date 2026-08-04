@@ -11,7 +11,7 @@ const PARTNERS = [
 
 export function ClientsMarquee() {
   return (
-    <section className="border-b border-border bg-white py-14 md:py-16">
+    <section className="overflow-hidden border-b border-border bg-white py-14 md:py-16">
       <ScrollReveal className="mx-auto max-w-6xl px-6 text-center">
         <p className="font-heading text-xs font-semibold uppercase tracking-widest text-accent-dark">
           Con quienes trabajamos
