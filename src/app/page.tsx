@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CountUp, Entrance, EntranceItem, ScrollReveal } from "@/components/motion";
 import { ProductCard } from "@/components/ProductCard";
 import { BrandSwitcher } from "@/components/BrandSwitcher";
+import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { getProducts } from "@/lib/products";
 import { SITE } from "@/lib/site";
 
@@ -197,6 +198,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <ClientsMarquee />
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <ScrollReveal>

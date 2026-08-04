@@ -123,3 +123,26 @@ body {
     animation: none;
   }
 }
+
+.clients-marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.clients-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: clients-marquee 34s linear infinite;
+}
+
+@keyframes clients-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee-track {
+    animation: none;
+  }
+}
