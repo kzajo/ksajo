@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent/local-only config, not part of the shared repo
+/.claude/
+/CLAUDE.md
+/AGENTS.md
+/README.md
