@@ -134,7 +134,7 @@ body {
 .clients-marquee-track {
   display: flex;
   width: max-content;
-  animation: clients-marquee 34s linear infinite;
+  animation: clients-marquee 50s linear infinite;
 }
 
 @keyframes clients-marquee {

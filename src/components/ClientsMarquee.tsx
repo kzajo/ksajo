@@ -25,7 +25,7 @@ export function ClientsMarquee() {
       <div className="clients-marquee-mask mt-10">
         <div className="clients-marquee-track">
           {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center gap-16 pr-16" aria-hidden={copy === 1}>
+            <div key={copy} className="flex shrink-0 items-center gap-24 pr-24" aria-hidden={copy === 1}>
               {PARTNERS.map((p) => (
                 // eslint-disable-next-line @next/next/no-img-element -- plain <img> on purpose: static, pre-optimized asset, no Next image-optimizer round trip needed for a decorative logo strip.
                 <img
@@ -36,7 +36,7 @@ export function ClientsMarquee() {
                   height={p.height}
                   loading="lazy"
                   decoding="async"
-                  className="h-9 w-auto shrink-0 md:h-11"
+                  className="h-12 w-auto shrink-0 md:h-16"
                 />
               ))}
             </div>
