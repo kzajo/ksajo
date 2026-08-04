@@ -25,7 +25,8 @@ muestra datos de ejemplo (ver banner en `/catalogo`).
 
 ## Flujo de trabajo con Git
 
-La rama `main` está protegida: no se permite push directo, todo cambio entra por Pull Request.
+Convención del equipo (sin bloqueo técnico de GitHub todavía — requiere plan de pago):
+nada de push directo a `main`, todo cambio entra por Pull Request.
 
 ```bash
 git checkout -b nombre-descriptivo-del-cambio
