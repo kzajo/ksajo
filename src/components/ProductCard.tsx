@@ -3,7 +3,7 @@ import { SmartImage } from "@/components/SmartImage";
 import { BRAND_LABEL } from "@/lib/site";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
-
+ 
 export function MarcaBadge({ brand }: { brand: Product["brand"] }) {
   return (
     <span
@@ -15,22 +15,22 @@ export function MarcaBadge({ brand }: { brand: Product["brand"] }) {
     </span>
   );
 }
-
+ 
 export function ProductCard({ product }: { product: Product }) {
   const image = (product.images ?? []).filter((img) => img.url)[0];
   const viscosidad = product.specs["Viscosidad"];
-
+ 
   return (
     <Link
       href={`/catalogo/${product.slug}`}
-      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-ink/10"
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-canvas shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-ink/10"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-canvas">
+      <div className="relative aspect-square overflow-hidden bg-white">
         <SmartImage
           src={image?.url}
           alt={image?.alt ?? product.name}
           etiquetaVacia={`Agregar imagen de ${product.name}`}
-          className="h-full w-full object-cover p-2 transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-3 left-3">
           <MarcaBadge brand={product.brand} />
@@ -41,7 +41,7 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         ) : null}
       </div>
-
+ 
       <div className="flex flex-1 flex-col gap-2 p-5">
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-steel-light">
           {product.category ? <span>{product.category.name}</span> : null}
@@ -63,3 +63,4 @@ export function ProductCard({ product }: { product: Product }) {
     </Link>
   );
 }
+ 
