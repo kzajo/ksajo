@@ -36,21 +36,42 @@ const BUSINESS_LINES = [
 export default function NosotrosPage() {
   return (
     <div className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)" }}
-      />
+      <section className="relative h-[70vh] min-h-[420px] w-full overflow-hidden bg-ink">
+        <video
+          src="/nosotros-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/20"
+        />
+        <div className="relative flex h-full items-end">
+          <div className="mx-auto w-full max-w-4xl px-6 pb-12">
+            <p className="font-heading text-xs font-semibold uppercase tracking-widest text-accent-light">
+              Sobre Kzajo
+            </p>
+            <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight text-white md:text-5xl">
+              Empresa norte santandereana líder en lubricantes
+            </h1>
+          </div>
+        </div>
+      </section>
 
       <div className="relative mx-auto max-w-4xl px-6 py-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-16 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)" }}
+        />
+
         <ScrollReveal>
-          <p className="font-heading text-xs font-semibold uppercase tracking-widest text-accent-dark">
-            Sobre Kzajo
-          </p>
-          <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Empresa norte santandereana líder en lubricantes
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-steel">
+          <p className="max-w-2xl text-lg text-steel">
             Somos {SITE.name}, distribuidores autorizados de lubricantes y aceites Maxter y
             Petromil en Norte de Santander. Trabajamos con talleres, flotas y empresas de la
             región que necesitan productos confiables para motores, sistemas hidráulicos,
