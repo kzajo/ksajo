@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/motion";
 import { AboutHero } from "@/components/AboutHero";
 import { SITE } from "@/lib/site";
@@ -57,8 +58,31 @@ export default function NosotrosPage() {
             [Pendiente confirmar: año de fundación y cifras exactas de la empresa.]
           </p>
         </ScrollReveal>
+      </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+      <section className="relative overflow-hidden bg-ink py-24 md:py-32">
+        <ScrollReveal className="relative mx-auto max-w-4xl px-6">
+          <div className="mx-auto w-full max-w-md">
+            <Image
+              src="/camion.png"
+              alt="Camión de reparto Kzajo"
+              width={1536}
+              height={1024}
+              className="h-auto w-full rounded-2xl bg-white shadow-2xl shadow-black/50"
+            />
+          </div>
+          <h2
+            aria-hidden="true"
+            className="camion-headline pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center font-heading text-6xl leading-[0.82] font-black uppercase sm:text-7xl md:text-8xl lg:text-9xl"
+          >
+            <span>Movemos</span>
+            <span>Colombia</span>
+          </h2>
+        </ScrollReveal>
+      </section>
+
+      <div className="relative mx-auto max-w-4xl px-6 pb-20">
+        <div className="grid gap-6 sm:grid-cols-2">
           {MISSION_VISION.map((item, i) => (
             <ScrollReveal key={item.title} delayMs={i * 100}>
               <div className="h-full rounded-2xl border border-border bg-surface p-7">
