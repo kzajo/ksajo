@@ -75,12 +75,17 @@ create policy "product_images_public_read" on product_images
 create policy "contact_messages_public_insert" on contact_messages
   for insert with check (true);
 
--- Categorías reales de Kzajo (tomadas del letrero de su punto de venta):
--- Motores | Hidráulicos y Engranajes | Transmisiones y Diferenciales.
+-- Categorías reales de Kzajo (tomadas del letrero de su punto de venta y del catálogo completo):
 insert into categories (slug, name, description, sort_order) values
   ('motores', 'Motores', 'Lubricantes para motores a diésel y gasolina', 1),
   ('hidraulicos-engranajes', 'Hidráulicos y Engranajes', 'Aceites hidráulicos y de engranajes para equipo industrial y minería', 2),
-  ('transmisiones-diferenciales', 'Transmisiones y Diferenciales', 'Lubricantes para transmisiones y diferenciales de servicio pesado', 3)
+  ('transmisiones-diferenciales', 'Transmisiones y Diferenciales', 'Lubricantes para transmisiones y diferenciales de servicio pesado', 3),
+  ('gasolina', 'Gasolina', 'Aceites minerales, semisintéticos y sintéticos para motores a gasolina', 4),
+  ('gas', 'Gas', 'Lubricantes para motores que operan con gas natural vehicular (GNV)', 5),
+  ('grasas', 'Grasas', 'Grasas multipropósito y de litio para rodamientos, chasis y uso industrial', 6),
+  ('industriales', 'Industriales', 'Lubricantes para equipo y maquinaria de uso industrial', 7),
+  ('motos', 'Motos', 'Aceites 4T y 2T para motocicletas', 8),
+  ('refrigerantes', 'Refrigerantes', 'Refrigerantes y anticongelantes para sistemas de enfriamiento', 9)
 on conflict (slug) do nothing;
 
 -- Catálogo real Maxter (nombre, API y precio confirmados por el cliente;

@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, BadgeCheck, Boxes, Droplets, Headset, Truck, Wrench } from "lucide-react";
 import { CountUp, Entrance, EntranceItem, ScrollReveal } from "@/components/motion";
-import { ProductCard } from "@/components/ProductCard";
+import { HeroSlider } from "@/components/HeroSlider";
+import { DestacadosSlider } from "@/components/DestacadosSlider";
+import { SmartImage } from "@/components/SmartImage";
 import { BrandSwitcher } from "@/components/BrandSwitcher";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
-import { getProducts } from "@/lib/products";
+import { getCategories, getProducts } from "@/lib/products";
 import { SITE } from "@/lib/site";
 
 const STATS = [
@@ -41,84 +44,61 @@ const SERVICES = [
   },
 ] as const;
 
+const BENEFICIOS = [
+  {
+    icono: BadgeCheck,
+    titulo: "Producto 100% original",
+    texto: "Distribución directa de Maxter y Petromil, con respaldo y trazabilidad de cada lote.",
+  },
+  {
+    icono: Boxes,
+    titulo: "Portafolio completo",
+    texto: "Motor, transmisión, diferenciales, hidráulicos, grasas y línea moto en un solo proveedor.",
+  },
+  {
+    icono: Truck,
+    titulo: "Entregas oportunas",
+    texto: "Logística propia y despachos programados para talleres, flotas y almacenes.",
+  },
+  {
+    icono: Headset,
+    titulo: "Asesoría técnica",
+    texto: "Recomendamos la viscosidad y especificación correcta según su motor y operación.",
+  },
+  {
+    icono: Wrench,
+    titulo: "Precio distribuidor",
+    texto: "Escalas de precio por volumen para talleres, lubricentros y empresas de transporte.",
+  },
+  {
+    icono: Droplets,
+    titulo: "Todas las presentaciones",
+    texto: "Desde cuarto y galón hasta baldes de 5 galones y tambores de 55 galones.",
+  },
+] as const;
+
+const ICONOS_CATEGORIA: Record<string, typeof Droplets> = {
+  motores: Truck,
+  "hidraulicos-engranajes": Wrench,
+  "transmisiones-diferenciales": Boxes,
+  gasolina: Droplets,
+  gas: Droplets,
+  grasas: Droplets,
+  industriales: Boxes,
+  motos: Droplets,
+  refrigerantes: Droplets,
+};
+
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const featured = await getProducts({ limit: 3 });
+  const [categorias, destacados] = await Promise.all([getCategories(), getProducts({ limit: 8 })]);
 
   return (
     <>
-      <section className="relative min-h-[420px] overflow-hidden border-b border-border bg-white">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-[15%] hidden h-[70%] w-px md:block"
-          style={{
-            background: "linear-gradient(to bottom, transparent, rgba(19,28,43,0.12), transparent)",
-          }}
-        />
+      <HeroSlider />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
-          <Entrance>
-            <EntranceItem>
-              <h1
-                className="text-3xl leading-[1.2] tracking-tight md:text-5xl"
-                style={{ fontFamily: "var(--font-plus-jakarta)", fontWeight: 800, color: "#0A1628" }}
-              >
-                Protegemos los motores
-                <br />
-                que mueven <span className="colombia-wave">Colombia</span>
-              </h1>
-            </EntranceItem>
-            <EntranceItem>
-              <p className="mt-5 max-w-sm text-sm text-steel md:text-base">
-                Lubricantes Maxter y Petromil para flotas de transporte, maquinaria industrial y
-                vehículos en Norte de Santander.
-              </p>
-            </EntranceItem>
-            <EntranceItem>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/catalogo"
-                  className="cursor-pointer rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5"
-                  style={{
-                    background: "linear-gradient(135deg, #4FA0FF 0%, #2563EB 100%)",
-                    boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
-                  }}
-                >
-                  Ver catálogo
-                </Link>
-                <a
-                  href={SITE.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer rounded-lg border border-border px-6 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-                >
-                  Contáctenos
-                </a>
-              </div>
-            </EntranceItem>
-          </Entrance>
-
-          <div className="relative hidden h-[280px] md:block md:h-[340px]">
-            <video
-              src="/hero-truck.mp4"
-              poster="/hero-truck.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{
-                maskImage: "linear-gradient(to left, black 55%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to left, black 55%, transparent 100%)",
-                filter: "brightness(0.92) contrast(1.05)",
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
+      {/* Barra de indicadores — se conserva igual al diseño original */}
       <section className="border-b border-white/10" style={{ background: "#1a51a4" }}>
         <div className="mx-auto grid max-w-4xl grid-cols-2 sm:grid-cols-4">
           {STATS.map((stat, i) => (
@@ -129,27 +109,56 @@ export default async function HomePage() {
                 <p className="font-heading text-2xl font-medium text-white md:text-3xl">
                   <CountUp value={stat.value} prefix={stat.prefix} suffix={stat.suffix} format={stat.format} />
                 </p>
-                <p className="mt-1 text-[11px] uppercase tracking-wide text-white/40">
-                  {stat.label}
-                </p>
+                <p className="mt-1 text-[11px] tracking-wide text-white/40 uppercase">{stat.label}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
+      {/* Marcas que distribuimos — se conserva igual al diseño original */}
       <BrandSwitcher />
 
+      {/* Beneficios */}
+      <section className="bg-canvas py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <ScrollReveal>
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold tracking-[0.2em] text-accent-dark uppercase">
+                Ventajas competitivas
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                Por qué comprar con Kzajo
+              </h2>
+            </div>
+          </ScrollReveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {BENEFICIOS.map((b, i) => (
+              <ScrollReveal key={b.titulo} delayMs={i * 60}>
+                <div className="h-full rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent/60">
+                  <span className="grid size-11 place-items-center rounded-xl bg-accent/10 text-accent-dark">
+                    <b.icono className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-4 font-heading text-base font-bold text-ink">{b.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-steel">{b.texto}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nuestras líneas + Marcas aliadas — se conservan iguales al diseño original */}
       <section className="border-b border-border bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <ScrollReveal>
-            <p className="font-heading text-xs font-semibold uppercase tracking-widest text-accent-dark">
+            <p className="font-heading text-xs font-semibold tracking-widest text-accent-dark uppercase">
               Nuestras líneas
             </p>
             <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-ink md:text-3xl">
               Soluciones para cada motor
             </h2>
-            <div className="mt-4 h-0.5 w-10 bg-accent" aria-hidden />
+            <div className="mt-4 h-0.5 w-10 bg-accent" aria-hidden="true" />
           </ScrollReveal>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
@@ -164,28 +173,22 @@ export default async function HomePage() {
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                     style={{ objectPosition: item.imagePosition }}
                   />
-
                   <div
                     aria-hidden
                     className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/50"
                   />
-
                   <div
                     aria-hidden
                     className="absolute inset-0 opacity-0 mix-blend-multiply transition-opacity duration-500 ease-out group-hover:opacity-90"
                     style={{ background: item.gradient }}
                   />
-
                   <div className="relative flex h-full flex-col justify-between p-5">
                     <div>
-                      <p className="font-heading text-xs font-semibold text-white/70">
-                        {item.num}
-                      </p>
+                      <p className="font-heading text-xs font-semibold text-white/70">{item.num}</p>
                       <p className="mt-2 font-heading text-lg font-bold text-white drop-shadow-sm">
                         {item.title}
                       </p>
                     </div>
-
                     <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-hover:grid-rows-[1fr]">
                       <div className="overflow-hidden">
                         <p className="pt-2 text-sm font-medium text-white">{item.body}</p>
@@ -201,28 +204,21 @@ export default async function HomePage() {
 
       <ClientsMarquee />
 
+      {/* Productos destacados */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <ScrollReveal>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-heading text-2xl font-bold tracking-tight text-ink md:text-3xl">
+          <div className="mb-2 max-w-2xl">
+            <p className="text-xs font-bold tracking-[0.2em] text-accent-dark uppercase">Más vendidos</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-ink sm:text-4xl">
               Productos destacados
             </h2>
-            <Link
-              href="/catalogo"
-              className="cursor-pointer text-sm font-semibold text-accent-dark transition-colors hover:text-accent"
-            >
-              Ver todo el catálogo →
-            </Link>
           </div>
         </ScrollReveal>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
-          {featured.map((product, i) => (
-            <ScrollReveal key={product.id} delayMs={i * 100}>
-              <ProductCard product={product} />
-            </ScrollReveal>
-          ))}
-        </div>
+        <Entrance className="mt-8">
+          <EntranceItem>
+            <DestacadosSlider productos={destacados} />
+          </EntranceItem>
+        </Entrance>
       </section>
     </>
   );
