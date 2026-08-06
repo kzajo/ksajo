@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ScrollReveal } from "@/components/motion";
-import { AboutHero } from "@/components/AboutHero";
+import { Entrance, EntranceItem, ScrollReveal } from "@/components/motion";
 import { SITE } from "@/lib/site";
 import { DropletIcon, FlameIcon, GaugeIcon } from "@/components/icons";
 
@@ -38,15 +37,28 @@ const BUSINESS_LINES = [
 export default function NosotrosPage() {
   return (
     <div className="relative overflow-hidden">
-      <AboutHero />
-
-      <div className="relative mx-auto max-w-4xl px-6 py-20">
+      <div className="relative mx-auto max-w-4xl px-6 pt-16 pb-4 md:pt-24">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-16 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full opacity-30 blur-3xl"
           style={{ background: "radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)" }}
         />
 
+        <Entrance>
+          <EntranceItem>
+            <p className="font-heading text-xs font-semibold uppercase tracking-widest text-accent-dark">
+              Sobre Kzajo
+            </p>
+          </EntranceItem>
+          <EntranceItem>
+            <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Empresa norte santandereana líder en lubricantes
+            </h1>
+          </EntranceItem>
+        </Entrance>
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-6 pb-20">
         <ScrollReveal>
           <p className="max-w-2xl text-lg text-steel">
             Somos {SITE.name}, distribuidores autorizados de lubricantes y aceites Maxter y
