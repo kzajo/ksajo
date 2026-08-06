@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Entrance, EntranceItem, ScrollReveal } from "@/components/motion";
-import { CamionReveal } from "@/components/CamionReveal";
 import { SITE } from "@/lib/site";
 import { DropletIcon, FlameIcon, GaugeIcon } from "@/components/icons";
 
@@ -71,8 +70,6 @@ export default function NosotrosPage() {
           </p>
         </ScrollReveal>
       </div>
-
-      <CamionReveal />
 
       <div className="relative mx-auto max-w-4xl px-6 pb-20">
         <div className="grid gap-6 sm:grid-cols-2">
