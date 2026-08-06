@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import { CloseIcon, MenuIcon } from "@/components/icons";
+import { StaggerText } from "@/components/motion";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -25,11 +27,14 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-label={link.label}
                   className={`text-sm font-medium transition-colors ${
                     active ? "text-white" : "text-white/70 hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  <motion.span initial="rest" whileHover="hover" className="inline-block">
+                    <StaggerText text={link.label} />
+                  </motion.span>
                 </Link>
               </li>
             );
