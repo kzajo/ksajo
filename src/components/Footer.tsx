@@ -9,7 +9,23 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-steel text-white">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-8">
-        <Image src="/logo-white.webp" alt={SITE.name} width={91} height={46} className="h-10 w-auto" />
+        <div className="flex items-center gap-6">
+          <Image
+            src="/logo-kzajo.webp"
+            alt="Kzajo"
+            width={120}
+            height={60}
+            className="h-10 w-auto"
+          />
+
+          <Image
+            src="/supertransporte.webp"
+            alt="SuperTransporte"
+            width={180}
+            height={90}
+            className="h-10 w-auto object-contain"
+          />
+        </div>
 
         <div>
           <p className="font-heading text-xs font-semibold uppercase tracking-wide text-white/50">
