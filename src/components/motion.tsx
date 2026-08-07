@@ -55,6 +55,47 @@ export function EntranceItem({ children, className = "" }: { children: ReactNode
   );
 }
 
+/**
+ * "Escalonado" sliding text button: on hover, each letter slides up and out
+ * while an identical copy slides up from below to replace it, with a small
+ * per-letter delay creating a diagonal wave. Purely decorative — the real
+ * accessible label lives on the parent link via aria-label.
+ */
+export function StaggerText({ text }: { text: string }) {
+  const letters = Array.from(text);
+  const perLetterDelay = 0.02;
+
+  return (
+    <span aria-hidden="true" className="relative inline-block overflow-hidden align-top">
+      <span className="invisible whitespace-pre">{text}</span>
+      <span className="absolute inset-0 flex">
+        {letters.map((ch, i) => (
+          <motion.span
+            key={`top-${i}`}
+            className="inline-block whitespace-pre"
+            variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
+            transition={{ duration: 0.35, ease: EASE, delay: i * perLetterDelay }}
+          >
+            {ch}
+          </motion.span>
+        ))}
+      </span>
+      <span className="absolute inset-0 flex">
+        {letters.map((ch, i) => (
+          <motion.span
+            key={`bottom-${i}`}
+            className="inline-block whitespace-pre"
+            variants={{ rest: { y: "100%" }, hover: { y: 0 } }}
+            transition={{ duration: 0.35, ease: EASE, delay: i * perLetterDelay }}
+          >
+            {ch}
+          </motion.span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
 /** Animates a number counting up from 0 once it scrolls into view. */
 export function CountUp({
   value,
