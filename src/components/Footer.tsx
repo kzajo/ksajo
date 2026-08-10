@@ -11,7 +11,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-8">
         <div className="flex items-center gap-6">
           <Image
-            src="/logo-kzajo.webp"
+            src="/logo-white.webp"
             alt="Kzajo"
             width={120}
             height={60}

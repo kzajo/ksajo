@@ -70,7 +70,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         className={`fixed inset-0 z-[999] origin-left ${phase === "idle" ? "pointer-events-none" : ""}`}
         initial={false}
         animate={{ scaleX: phase === "covering" || phase === "covered" ? 1 : 0 }}
-        transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
+        transition={{ duration: 0.1, ease: [0.76, 0, 0.24, 1] }}
         onAnimationComplete={() => {
           if (phase === "covering") {
             setPhase("covered");
