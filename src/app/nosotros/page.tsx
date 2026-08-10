@@ -199,24 +199,6 @@ export default function NosotrosPage() {
             </ScrollReveal>
           ))}
         </div>
-
-        <ScrollReveal delayMs={100}>
-          <div className="mt-14 flex flex-col items-start gap-4 rounded-2xl border border-border bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h3 className="font-heading text-xl font-bold">¿Necesita asesoría para su flota o taller?</h3>
-              <p className="mt-1 text-sm text-white/70">Escríbanos y le ayudamos a elegir el producto correcto.</p>
-            </div>
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-            >
-              Hablar con un asesor
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </div>
-        </ScrollReveal>
       </section>
     </>
   );

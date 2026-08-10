@@ -3,13 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
+import { motion } from "motion/react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import { CloseIcon, MenuIcon } from "@/components/icons";
+import { StaggerText } from "@/components/motion";
+import { usePageTransition } from "@/components/PageTransition";
 
 export function Navbar() {
   const pathname = usePathname();
+  const { navigate } = usePageTransition();
   const [open, setOpen] = useState(false);
+
+  function handleNavClick(e: MouseEvent<HTMLAnchorElement>, href: string) {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigate(href);
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-accent shadow-md shadow-accent-dark/20">
@@ -25,11 +35,15 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-label={link.label}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-sm font-medium transition-colors ${
                     active ? "text-white" : "text-white/70 hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  <motion.span initial="rest" whileHover="hover" className="inline-block">
+                    <StaggerText text={link.label} />
+                  </motion.span>
                 </Link>
               </li>
             );
@@ -53,7 +67,10 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  setOpen(false);
+                  handleNavClick(e, link.href);
+                }}
                 className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
               >
                 {link.label}
