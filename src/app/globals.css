@@ -64,7 +64,16 @@ body {
 }
 
 .colombia-wave {
-  background-image: linear-gradient(90deg, #fdd116, #003893, #ce1126, #fdd116);
+  background-image: linear-gradient(
+    90deg,
+    #fdd116 0%,
+    #fdd116 20%,
+    #003893 30%,
+    #003893 50%,
+    #ce1126 60%,
+    #ce1126 80%,
+    #fdd116 100%
+  );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
