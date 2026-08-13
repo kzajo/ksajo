@@ -8,7 +8,11 @@ import { SITE } from "@/lib/site";
 const slides = [
   {
     etiqueta: "Distribuidores autorizados",
-    titulo: "Protegemos los motores que mueven Colombia",
+    titulo: (
+      <>
+        Protegemos los motores que mueven <span className="colombia-wave">Colombia</span>
+      </>
+    ),
     texto:
       "Lubricantes Maxter y Petromil para flotas de transporte, maquinaria industrial y vehículos en Norte de Santander.",
     cta: { label: "Ver catálogo", href: "/catalogo" },
@@ -67,7 +71,7 @@ export function HeroSlider() {
       <div className="relative mx-auto flex min-h-[420px] max-w-6xl flex-col justify-center px-6 py-20 md:py-28">
         {slides.map((s, i) => (
           <div
-            key={s.titulo}
+            key={s.etiqueta}
             hidden={i !== indice}
             role="group"
             aria-roledescription="diapositiva"
@@ -121,7 +125,7 @@ export function HeroSlider() {
           <div className="flex items-center gap-2">
             {slides.map((s, i) => (
               <button
-                key={s.titulo}
+                key={s.etiqueta}
                 type="button"
                 onClick={() => setIndice(i)}
                 aria-current={i === indice}
