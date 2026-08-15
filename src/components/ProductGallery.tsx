@@ -17,13 +17,13 @@ export function ProductGallery({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex aspect-square items-center justify-center overflow-hidden rounded-2xl border border-border bg-canvas">
+      <div className="flex aspect-square items-center justify-center overflow-hidden rounded-2xl border border-border bg-white">
         <SmartImage
           key={active?.url ?? "placeholder"}
           src={active?.url}
           alt={active?.alt ?? productName}
           etiquetaVacia="Imagen de producto pendiente"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain p-6"
         />
       </div>
 
@@ -36,11 +36,11 @@ export function ProductGallery({
               onClick={() => setActiveIndex(i)}
               aria-current={i === activeIndex}
               aria-label={`Ver imagen ${i + 1} de ${productName}`}
-              className={`aspect-square cursor-pointer overflow-hidden rounded-lg border-2 bg-canvas transition-colors ${
+              className={`aspect-square cursor-pointer overflow-hidden rounded-lg border-2 bg-white transition-colors ${
                 i === activeIndex ? "border-accent" : "border-border opacity-70 hover:opacity-100"
               }`}
             >
-              <SmartImage src={img.url} alt={img.alt ?? productName} className="h-full w-full object-cover" />
+              <SmartImage src={img.url} alt={img.alt ?? productName} className="h-full w-full object-contain p-2" />
             </button>
           ))}
         </div>
