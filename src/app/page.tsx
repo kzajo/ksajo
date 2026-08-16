@@ -91,8 +91,27 @@ const ICONOS_CATEGORIA: Record<string, typeof Droplets> = {
 
 export const revalidate = 300;
 
+function interleaveByBrand(maxter: Awaited<ReturnType<typeof getProducts>>, petromil: Awaited<ReturnType<typeof getProducts>>) {
+  const result: typeof maxter = [];
+  const max = Math.max(maxter.length, petromil.length);
+  for (let i = 0; i < max; i++) {
+    if (maxter[i]) result.push(maxter[i]);
+    if (petromil[i]) result.push(petromil[i]);
+  }
+  return result;
+}
+
 export default async function HomePage() {
-  const [categorias, destacados] = await Promise.all([getCategories(), getProducts({ limit: 8 })]);
+  const [categorias, maxterProductos, petromilProductos] = await Promise.all([
+    getCategories(),
+    getProducts({ brand: "maxter", limit: 6 }),
+    getProducts({ brand: "petromil", limit: 6 }),
+  ]);
+
+  const conFoto = (p: Awaited<ReturnType<typeof getProducts>>) =>
+    p.filter((prod) => (prod.images ?? []).some((img) => img.url));
+
+  const destacados = interleaveByBrand(conFoto(maxterProductos), conFoto(petromilProductos)).slice(0, 8);
 
   return (
     <>
