@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-type BrandId = "maxter" | "petromil";
+type BrandId = "maxter" | "petromil" | "beg";
 
 const BRANDS: Record<
   BrandId,
@@ -71,9 +71,31 @@ const BRANDS: Record<
     image: "/logo-petromil.png",
     glow: "rgba(27,58,107,0.6)",
   },
+  beg: {
+    bg: "#0A0A0C",
+    bgWordColor: "rgba(206,21,26,0.25)",
+    tag: "#CE151A",
+    badgeText: "PROTECCIÓN Y RENDIMIENTO",
+    badgeBg: "rgba(206,21,26,0.12)",
+    badgeBorder: "rgba(206,21,26,0.3)",
+    nameColor: "#CE151A",
+    dotColor: "#CE151A",
+    btnBg: "#CE151A",
+    tabActiveBg: "#A01015",
+    title: "BEG",
+    desc: "Aceites, grasas y aditivos BEG (Arintia Group) para la protección y mantenimiento de equipos automotrices, agrícolas, mineros, marítimos e industriales, con estándares de calidad internacional.",
+    specs: [
+      "Aceites automotrices e industriales",
+      "Grasas lubricantes y aditivos",
+      "Líquido de frenos y refrigerantes",
+      "Aplicación agrícola, minera y marítima",
+    ],
+    image: "/logo-beg.png",
+    glow: "rgba(206,21,26,0.5)",
+  },
 };
 
-const ORDER: BrandId[] = ["maxter", "petromil"];
+const ORDER: BrandId[] = ["maxter", "petromil", "beg"];
 
 export function BrandSwitcher() {
   const [brand, setBrand] = useState<BrandId>("maxter");
@@ -105,7 +127,7 @@ export function BrandSwitcher() {
           Marcas que distribuimos
         </p>
         <h2 className="mt-1.5 font-heading text-2xl font-bold text-white">
-          Dos marcas reconocidas
+          Tres marcas reconocidas
         </h2>
       </div>
 
@@ -190,7 +212,7 @@ export function BrandSwitcher() {
                 alt={`Producto ${m.title}`}
                 width={160}
                 height={180}
-                className="h-40 w-auto object-contain drop-shadow-2xl"
+                className="h-40 w-auto max-w-[min(80vw,320px)] object-contain drop-shadow-2xl"
               />
             </motion.div>
           </AnimatePresence>
