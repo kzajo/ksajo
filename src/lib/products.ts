@@ -13,7 +13,7 @@ export async function getCategories(): Promise<Category[]> {
     .select("*")
     .order("sort_order", { ascending: true });
 
-  if (error || !data) return PLACEHOLDER_CATEGORIES;
+  if (error || !data) return [];
   return data as Category[];
 }
 

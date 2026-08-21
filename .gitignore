@@ -45,3 +45,6 @@ next-env.d.ts
 /.claude/
 /CLAUDE.md
 /AGENTS.md
+
+# material fuente del cliente (brochures, fichas técnicas, fotos) — nunca se commitea
+/revisar/

@@ -1,14 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, BadgeCheck, Boxes, Droplets, Headset, Truck, Wrench } from "lucide-react";
+import { BadgeCheck, Boxes, Droplets, Headset, Truck, Wrench } from "lucide-react";
 import { CountUp, Entrance, EntranceItem, ScrollReveal } from "@/components/motion";
 import { HeroSlider } from "@/components/HeroSlider";
 import { DestacadosSlider } from "@/components/DestacadosSlider";
-import { SmartImage } from "@/components/SmartImage";
 import { BrandSwitcher } from "@/components/BrandSwitcher";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
-import { getCategories, getProducts } from "@/lib/products";
-import { SITE } from "@/lib/site";
+import { getProducts } from "@/lib/products";
 
 const STATS = [
   { value: 11000, prefix: "", suffix: "+", label: "galones/mes", format: true },
@@ -77,18 +74,6 @@ const BENEFICIOS = [
   },
 ] as const;
 
-const ICONOS_CATEGORIA: Record<string, typeof Droplets> = {
-  motores: Truck,
-  "hidraulicos-engranajes": Wrench,
-  "transmisiones-diferenciales": Boxes,
-  gasolina: Droplets,
-  gas: Droplets,
-  grasas: Droplets,
-  industriales: Boxes,
-  motos: Droplets,
-  refrigerantes: Droplets,
-};
-
 export const revalidate = 300;
 
 function interleaveByBrand(maxter: Awaited<ReturnType<typeof getProducts>>, petromil: Awaited<ReturnType<typeof getProducts>>) {
@@ -102,8 +87,7 @@ function interleaveByBrand(maxter: Awaited<ReturnType<typeof getProducts>>, petr
 }
 
 export default async function HomePage() {
-  const [categorias, maxterProductos, petromilProductos] = await Promise.all([
-    getCategories(),
+  const [maxterProductos, petromilProductos] = await Promise.all([
     getProducts({ brand: "maxter", limit: 6 }),
     getProducts({ brand: "petromil", limit: 6 }),
   ]);

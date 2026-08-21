@@ -1,4 +1,4 @@
-export type Brand = "maxter" | "petromil";
+export type Brand = "maxter" | "petromil" | "beg";
 
 export type Category = {
   id: string;

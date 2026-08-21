@@ -35,7 +35,8 @@ export const NAV_LINKS = [
   { href: "/contacto", label: "Contacto" },
 ] as const;
 
-export const BRAND_LABEL: Record<"maxter" | "petromil", string> = {
+export const BRAND_LABEL: Record<"maxter" | "petromil" | "beg", string> = {
   maxter: "Maxter",
   petromil: "Petromil",
+  beg: "BEG",
 };

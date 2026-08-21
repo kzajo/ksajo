@@ -12,6 +12,7 @@
   --color-accent-light: #5a8bd6;
   --color-maxter: #f91616;
   --color-petromil: #004f9e;
+  --color-beg: #ce151a;
   --color-canvas: #f5f7fb;
   --color-surface: #ffffff;
   --color-border: #e3e6ee;
@@ -28,6 +29,7 @@
   --color-accent-light: var(--color-accent-light);
   --color-maxter: var(--color-maxter);
   --color-petromil: var(--color-petromil);
+  --color-beg: var(--color-beg);
   --color-canvas: var(--color-canvas);
   --color-surface: var(--color-surface);
   --color-border: var(--color-border);

@@ -8,7 +8,7 @@ export function MarcaBadge({ brand }: { brand: Product["brand"] }) {
   return (
     <span
       className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] text-white uppercase ${
-        brand === "maxter" ? "bg-maxter" : "bg-petromil"
+        brand === "maxter" ? "bg-maxter" : brand === "petromil" ? "bg-petromil" : "bg-beg"
       }`}
     >
       {BRAND_LABEL[brand]}
@@ -30,7 +30,7 @@ export function ProductCard({ product }: { product: Product }) {
           src={image?.url}
           alt={image?.alt ?? product.name}
           etiquetaVacia={`Agregar imagen de ${product.name}`}
-          className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.02]"
         />
         <div className="absolute top-3 left-3">
           <MarcaBadge brand={product.brand} />

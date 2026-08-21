@@ -170,3 +170,12 @@ alter table products add column if not exists safety_sheet_url text;
 update products
 set specs = specs || '{"API": "CK-4/SN", "Presentación": "55 GAL, 15 GAL, 5 GAL, 1 GAL, 1/4 GAL"}'::jsonb
 where slug = 'maxter-15w40-avanzado';
+
+-- Tercera marca distribuida: BEG (aditivos, refrigerantes, líquidos de freno y grasas).
+alter table products drop constraint if exists products_brand_check;
+alter table products add constraint products_brand_check check (brand in ('maxter', 'petromil', 'beg'));
+
+insert into categories (slug, name, description, sort_order) values
+  ('aditivos', 'Aditivos', 'Aditivos para motor, transmisión y combustible diésel', 10),
+  ('frenos', 'Líquidos de Freno', 'Líquidos de freno DOT3 y DOT4 para sistemas hidráulicos de frenado', 11)
+on conflict (slug) do nothing;

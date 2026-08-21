@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Compass, Eye, HandshakeIcon, ShieldCheck, Target, Users } from "lucide-react";
+import { Compass, Eye, HandshakeIcon, ShieldCheck, Target, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/motion";
 import { SmartImage } from "@/components/SmartImage";
 import { DropletIcon, FlameIcon, GaugeIcon } from "@/components/icons";
-import { SITE, whatsappLink } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Nosotros",

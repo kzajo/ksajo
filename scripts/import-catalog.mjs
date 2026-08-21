@@ -11,8 +11,10 @@
 //   name, brand, category, short_description, description, price,
 //   viscosidad, api, tipo, presentacion, image
 //
-// - brand: "maxter" o "petromil"
-// - category: motores | hidraulicos-engranajes | transmisiones-diferenciales
+// - brand: "maxter", "petromil" o "beg"
+// - category: motores | hidraulicos-engranajes | transmisiones-diferenciales |
+//   gasolina | gas | grasas | industriales | motos | refrigerantes |
+//   aditivos | frenos
 // - price: número en COP, o vacío para "Consultar precio"
 // - image: nombre del archivo dentro de scripts/import/images/ (opcional)
 
@@ -151,8 +153,8 @@ async function main() {
       skipped++;
       continue;
     }
-    if (brand !== "maxter" && brand !== "petromil") {
-      console.warn(`⚠ marca inválida "${brand}" en "${name}", se omite (usa maxter o petromil)`);
+    if (!["maxter", "petromil", "beg"].includes(brand)) {
+      console.warn(`⚠ marca inválida "${brand}" en "${name}", se omite (usa maxter, petromil o beg)`);
       skipped++;
       continue;
     }

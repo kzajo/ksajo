@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { BRAND_LABEL } from "@/lib/site";
 import type { Brand, Category, Product } from "@/lib/types";
  
-const BRANDS: Brand[] = ["maxter", "petromil"];
+const BRANDS: Brand[] = ["maxter", "petromil", "beg"];
  
 export function CatalogoFiltros({
   categorias,
