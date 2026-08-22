@@ -118,19 +118,19 @@ export default function NosotrosPage() {
           <ScrollReveal delayMs={100}>
             <div className="grid grid-cols-2 gap-4">
               <SmartImage
-                src={null}
+                src="instalaciones.png"
                 alt="Instalaciones de Kzajo"
                 etiquetaVacia="Foto de instalaciones"
                 className="col-span-2 aspect-[16/9] w-full rounded-2xl border border-border object-cover"
               />
               <SmartImage
-                src={null}
+                src="bodega.png"
                 alt="Bodega de almacenamiento"
                 etiquetaVacia="Foto de bodega"
                 className="aspect-square w-full rounded-2xl border border-border object-cover"
               />
               <SmartImage
-                src={null}
+                src="equipo.png"
                 alt="Equipo de trabajo"
                 etiquetaVacia="Foto del equipo"
                 className="aspect-square w-full rounded-2xl border border-border object-cover"
