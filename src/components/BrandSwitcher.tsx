@@ -95,7 +95,8 @@ const BRANDS: Record<
   },
 };
 
-const ORDER: BrandId[] = ["maxter", "petromil", "beg"];
+// BEG queda fuera temporalmente (sigue en BRANDS por si se reactiva más adelante).
+const ORDER: BrandId[] = ["maxter", "petromil"];
 
 export function BrandSwitcher() {
   const [brand, setBrand] = useState<BrandId>("maxter");
@@ -127,7 +128,7 @@ export function BrandSwitcher() {
           Marcas que distribuimos
         </p>
         <h2 className="mt-1.5 font-heading text-2xl font-bold text-white">
-          Tres marcas reconocidas
+          Dos marcas reconocidas
         </h2>
       </div>
 
