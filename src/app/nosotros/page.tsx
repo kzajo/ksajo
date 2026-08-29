@@ -26,6 +26,11 @@ const MISSION_VISION = [
 
 const VALORES = [
   {
+    icono: Users,
+    titulo: "Servicio",
+    texto: "Atención cercana y respuesta rápida antes, durante y después de la compra.",
+  },
+  {
     icono: ShieldCheck,
     titulo: "Confianza",
     texto: "Producto original y trazable. Lo que ofrecemos es exactamente lo que entregamos.",
@@ -34,11 +39,6 @@ const VALORES = [
     icono: HandshakeIcon,
     titulo: "Compromiso",
     texto: "Cumplimos con lo pactado en precio, cantidad y tiempo de entrega.",
-  },
-  {
-    icono: Users,
-    titulo: "Servicio",
-    texto: "Atención cercana y respuesta rápida antes, durante y después de la compra.",
   },
   {
     icono: Compass,
@@ -59,6 +59,11 @@ const BUSINESS_LINES = [
     body: "Lubricantes para transmisiones y diferenciales de servicio pesado.",
     Icon: FlameIcon,
   },
+  {
+    title: "Carga Líquida y Químicos",
+    body: "Especialistas en transporte de carga líquida: hidrocarburos, aceites de palma y productos químicos.",
+    Icon: DropletIcon,
+},
 ];
 
 export default function NosotrosPage() {

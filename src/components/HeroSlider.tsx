@@ -10,16 +10,16 @@ const slides = [
     etiqueta: "Distribuidores autorizados",
     titulo: (
       <>
-        Protegemos los motores que mueven <span className="colombia-wave">Colombia</span>
+        Protegemos los motores que mueven a <span className="colombia-wave">Colombia</span>
       </>
     ),
     texto:
-      "Lubricantes Maxter y Petromil para flotas de transporte, maquinaria industrial y vehículos en Norte de Santander.",
+      "Lubricantes Maxter y Petromil para flotas de transporte, maquinaria industrial y vehículos.",
     cta: { label: "Ver catálogo", href: "/catalogo" },
   },
   {
     etiqueta: "Carga pesada y maquinaria",
-    titulo: "Protección de motor para trabajo severo",
+    titulo: "Protección al motor para trabajo severo",
     texto:
       "Línea diésel API CI-4/CJ-4 y fluidos hidráulicos antidesgaste que extienden la vida útil de sus equipos.",
     cta: { label: "Ver línea Motores", href: "/catalogo?categoria=motores" },

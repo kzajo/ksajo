@@ -8,9 +8,9 @@ import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { getProducts } from "@/lib/products";
 
 const STATS = [
-  { value: 11000, prefix: "", suffix: "+", label: "galones/mes", format: true },
-  { value: 80, prefix: "", suffix: "+", label: "clientes", format: false },
-  { value: 20, prefix: "", suffix: "+", label: "años", format: false },
+  { value: 170, prefix: "", suffix: "+", label: "visitas/seguidores", format: true },
+  { value: 350, prefix: "", suffix: "+", label: "clientes", format: false },
+  { value: 7, prefix: "", suffix: "+", label: "años", format: false },
   { value: 1, prefix: "#", suffix: "", label: "Norte Santander", format: false },
 ] as const;
 
