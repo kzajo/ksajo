@@ -6,7 +6,8 @@ import { ProductCard } from "@/components/ProductCard";
 import { BRAND_LABEL } from "@/lib/site";
 import type { Brand, Category, Product } from "@/lib/types";
  
-const BRANDS: Brand[] = ["maxter", "petromil", "beg"];
+// BEG queda fuera temporalmente del filtro (sigue soportado en el tipo Brand).
+const BRANDS: Brand[] = ["maxter", "petromil"];
  
 export function CatalogoFiltros({
   categorias,
