@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/motion";
 const PARTNERS = [
   { src: "/partner-maxter.webp", alt: "Maxter", width: 804, height: 220 },
   { src: "/partner-petromil.webp", alt: "Petromil", width: 723, height: 220 },
-  { src: "/partner-beg.webp", alt: "BEG", width: 415, height: 196 },
+  // BEG queda fuera temporalmente: { src: "/partner-beg.webp", alt: "BEG", width: 415, height: 196 },
   { src: "/partner-sacyr.webp", alt: "Sacyr", width: 743, height: 220 },
   { src: "/partner-ecopetrol.webp", alt: "Ecopetrol", width: 625, height: 220 },
   { src: "/partner-coomulpinort.webp", alt: "Coomulpinort", width: 247, height: 220 },
