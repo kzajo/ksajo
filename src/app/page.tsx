@@ -69,7 +69,7 @@ const BENEFICIOS = [
   },
   {
     icono: Droplets,
-    titulo: "Todas las presentaciones",
+    titulo: "Bodega propia junto a todas las presentaciones",
     texto: "Desde cuarto y galón hasta baldes de 5 galones y tambores de 55 galones.",
   },
 ] as const;
