@@ -15,12 +15,12 @@ const MISSION_VISION = [
   {
     title: "Misión",
     icono: Target,
-    body: "Satisfacer las necesidades de los clientes que requieren suministro de lubricantes y aceites para automotores, con productos de alta calidad, amigables con el medio ambiente y respaldados por estándares internacionales.",
+    body: "Satisfacer las necesidades de nuestros clientes mediante el suministro de lubricantes y aceites para automotores de alta calidad, amigables con el medio ambiente y respaldados por estándares internacionales, complementado con un servicio de transporte de carga líquida que cumple con su respectiva normativa, garantizando una entrega segura, oportuna y confiable a nivel nacional.",
   },
   {
     title: "Visión",
     icono: Eye,
-    body: "Ser reconocida como la empresa líder en comercialización de lubricantes en Norte de Santander, destacada por la fortaleza de su talento humano, sus procesos innovadores y su excelencia en el servicio.",
+    body: "Ser reconocida como la empresa líder en comercialización de lubricantes y transporte especializado en carga líquida en Norte de Santander, destacada por la fortaleza de su talento humano, sus procesos innovadores y su excelencia en el servicio.",
   },
 ];
 
@@ -105,19 +105,16 @@ export default function NosotrosPage() {
               <p>
                 Somos {SITE.name}, distribuidores autorizados de lubricantes y aceites{" "}
                 <strong className="text-ink">Maxter</strong> y{" "}
-                <strong className="text-ink">Petromil</strong> en Norte de Santander. Trabajamos con
-                talleres, lubricentros, flotas de transporte y empresas industriales de la región que
-                necesitan productos confiables para motores, sistemas hidráulicos, engranajes,
-                transmisiones y diferenciales.
+                <strong className="text-ink">Petromil</strong> en Norte de Santander. Desde nuestra fundación en 2019, trabajamos con talleres, lubricentros,
+               flotas de transporte y empresas industriales de la región que necesitan productos confiables para motores, sistemas hidráulicos, engranajes, transmisiones y diferenciales.
+                Nuestro diferencial no es solo el producto: es entender qué necesita cada motor y cada operación, y acompañar al cliente para que tome la mejor decisión técnica y económica.
+                Hoy contamos con más de 350 clientes que confían en nosotros, respaldados por años de experiencia y compromiso con la calidad y el servicio.
               </p>
               <p>
                 Nuestro diferencial no es solo el producto: es entender qué necesita cada motor y cada
                 operación, y acompañar al cliente para que tome la mejor decisión técnica y económica.
               </p>
             </div>
-            <p className="mt-4 text-sm text-mist italic">
-              [Pendiente confirmar: año de fundación y cifras exactas de la empresa.]
-            </p>
           </ScrollReveal>
 
           <ScrollReveal delayMs={100}>
