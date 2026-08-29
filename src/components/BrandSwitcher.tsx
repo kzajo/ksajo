@@ -21,7 +21,7 @@ const BRANDS: Record<
     btnBg: string;
     tabActiveBg: string;
     title: string;
-    desc: string;
+    desc: readonly string[];
     specs: readonly string[];
     image: string;
     glow: string;
@@ -39,7 +39,10 @@ const BRANDS: Record<
     btnBg: "#ff3434",
     tabActiveBg: "#c01010",
     title: "Maxter",
-    desc: "Lubricantes de alta tecnología para motores diésel y gasolina, con aditivos de extrema presión que protegen tu motor en condiciones severas de operación.",
+    desc: [
+      "Lubricantes de alta tecnología para motores diésel y gasolina, formulados con aditivos de extrema presión que brindan máxima protección al motor incluso en condiciones severas de operación.",
+      "Una marca 100% colombiana, elaborada con los más altos estándares de calidad y tecnología, que cuenta además con productos importados de reconocida trayectoria, ofreciendo soluciones confiables para el cuidado y rendimiento de su motor.",
+    ],
     specs: [
       "Motores diésel y gasolina",
       "Transmisiones y diferenciales",
@@ -61,7 +64,10 @@ const BRANDS: Record<
     btnBg: "#1B3A6B",
     tabActiveBg: "#1B3A6B",
     title: "Petromil",
-    desc: "Aceites y lubricantes industriales del Grupo Petromil, diseñados para equipos pesados y de trabajo industrial bajo los más altos estándares internacionales.",
+    desc: [
+      "Aceites y lubricantes industriales del Grupo Petromil, diseñados para equipos pesados y aplicaciones de trabajo industrial, elaborados bajo los más altos estándares internacionales de calidad y tecnología.",
+      "Una marca 100% colombiana, comprometida con ofrecer productos de la más alta calidad para satisfacer las exigencias del sector industrial. Además, cuenta con productos importados, brindando un portafolio de soluciones confiables y de alto desempeño para la protección y el óptimo funcionamiento de los equipos.",
+    ],
     specs: [
       "Equipo industrial y pesado",
       "Maquinaria agrícola y minera",
@@ -83,7 +89,9 @@ const BRANDS: Record<
     btnBg: "#CE151A",
     tabActiveBg: "#A01015",
     title: "BEG",
-    desc: "Aceites, grasas y aditivos BEG (Arintia Group) para la protección y mantenimiento de equipos automotrices, agrícolas, mineros, marítimos e industriales, con estándares de calidad internacional.",
+    desc: [
+      "Aceites, grasas y aditivos BEG (Arintia Group) para la protección y mantenimiento de equipos automotrices, agrícolas, mineros, marítimos e industriales, con estándares de calidad internacional.",
+    ],
     specs: [
       "Aceites automotrices e industriales",
       "Grasas lubricantes y aditivos",
@@ -166,7 +174,13 @@ export function BrandSwitcher() {
           >
             {m.title}
           </h3>
-          <p className="mx-auto mt-2 max-w-xs text-sm text-white/50 md:mx-0">{m.desc}</p>
+          <div className="mx-auto mt-2 max-w-xs space-y-2 md:mx-0">
+            {m.desc.map((paragraph, i) => (
+              <p key={i} className="text-sm text-white/50">
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
           <ul className="mx-auto mt-4 max-w-xs space-y-1.5 md:mx-0">
             {m.specs.map((spec) => (

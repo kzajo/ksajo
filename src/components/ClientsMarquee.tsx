@@ -8,6 +8,8 @@ const PARTNERS = [
   { src: "/partner-ecopetrol.webp", alt: "Ecopetrol", width: 625, height: 220 },
   { src: "/partner-coomulpinort.webp", alt: "Coomulpinort", width: 247, height: 220 },
   { src: "/partner-palnortesas.webp", alt: "Palnortesas S.A.S.", width: 315, height: 220 },
+  { src: "/partner-oleoflores.webp", alt: "Oleoflores", width: 698, height: 220 },
+  { src: "/partner-transoil.webp", alt: "Transoil", width: 756, height: 220 },
 ] as const;
 
 export function ClientsMarquee() {

@@ -109,3 +109,21 @@ export function GaugeIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function VolumeOnIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} {...props}>
+      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4Z" strokeLinejoin="round" />
+      <path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function VolumeOffIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} {...props}>
+      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4Z" strokeLinejoin="round" />
+      <path d="M16.5 9.5l4 4M20.5 9.5l-4 4" strokeLinecap="round" />
+    </svg>
+  );
+}
