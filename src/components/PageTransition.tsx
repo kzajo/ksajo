@@ -8,6 +8,7 @@ import { motion, useReducedMotion } from "motion/react";
 const CURTAIN_COLORS: Record<string, string> = {
   "/": "#ffffff",
   "/catalogo": "var(--color-ink)",
+  "/transporte": "var(--color-accent-dark)",
   "/nosotros": "var(--color-accent)",
   "/contacto": "var(--color-steel)",
 };

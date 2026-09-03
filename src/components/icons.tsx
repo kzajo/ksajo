@@ -127,3 +127,62 @@ export function VolumeOffIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function TruckIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <path d="M3 6.5h10v10H3z" strokeLinejoin="round" />
+      <path d="M13 10h4l3 3v3.5h-7V10Z" strokeLinejoin="round" />
+      <circle cx="7" cy="17.5" r="1.7" />
+      <circle cx="16.5" cy="17.5" r="1.7" />
+    </svg>
+  );
+}
+
+export function ClipboardIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <rect x="5.5" y="4.5" width="13" height="16" rx="1.5" />
+      <rect x="9" y="3" width="6" height="3" rx="1" />
+      <path d="M8.5 12h7M8.5 15.5h7" strokeLinecap="round" />
+      <path d="m8 9 1 1 1.8-1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function FlaskIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <path d="M10 3h4M10 3v6.5L4.8 18a1.5 1.5 0 0 0 1.3 2.3h11.8a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3" strokeLinejoin="round" />
+      <path d="M7.5 15h9" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function CreditCardIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <rect x="3" y="5.5" width="18" height="13" rx="2" />
+      <path d="M3 9.5h18" />
+      <path d="M6.5 14.5h4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function MapPinIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <path d="M12 21s7-6.4 7-11.5A7 7 0 1 0 5 9.5C5 14.6 12 21 12 21Z" strokeLinejoin="round" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </svg>
+  );
+}
+
+export function BadgeIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} {...props}>
+      <circle cx="12" cy="9" r="5.5" />
+      <path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
