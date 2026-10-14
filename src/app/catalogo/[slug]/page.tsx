@@ -8,6 +8,7 @@ import { PresentationSizes } from "@/components/PresentationSizes";
 import { ProductCard } from "@/components/ProductCard";
 import { MarcaBadge } from "@/components/ProductCard";
 import { DocumentIcon, LockIcon } from "@/components/icons";
+import { AddToCartForm } from "@/components/AddToCartForm";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import { BRAND_LABEL, SITE, whatsappLink } from "@/lib/site";
@@ -140,6 +141,8 @@ export default async function ProductoPage({
               Cotizar por WhatsApp
             </a>
           </div>
+
+          <AddToCartForm product={product} />
 
           {product.description ? (
             <div className="mt-10">

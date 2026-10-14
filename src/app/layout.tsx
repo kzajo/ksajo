@@ -7,6 +7,8 @@ import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { PromoVideoModal } from "@/components/PromoVideoModal";
 import { PageTransitionProvider } from "@/components/PageTransition";
 import { SITE } from "@/lib/site";
+import { CartDrawer } from "@/components/CartDrawer";
+import { CartProvider } from "@/lib/cart-context";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -40,13 +42,56 @@ export const metadata: Metadata = {
     template: `%s — ${SITE.shortName}`,
   },
   description: SITE.description,
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: "Lubricantes y transporte de carga",
+  keywords: [
+    "lubricantes Cúcuta",
+    "aceites para motor diésel",
+    "distribuidor Maxter",
+    "distribuidor Petromil",
+    "aceite hidráulico",
+    "aceite para transmisión",
+    "aditivos y refrigerantes",
+    "transporte de carga líquida",
+    "Norte de Santander",
+  ],
+  formatDetection: { telephone: true, email: true, address: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: SITE.name,
+    title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
     locale: "es_CO",
     type: "website",
+    images: [{ url: "/hero-truck.jpg", width: 1200, height: 630, alt: SITE.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    images: ["/hero-truck.jpg"],
+  },
+  // Código de Google Search Console (puede quedar vacío hasta que lo tengas).
+  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  other: {
+    "geo.region": "CO-NSA",
+    "geo.placename": "Cúcuta",
+    "geo.position": `${SITE.mapCoords.lat};${SITE.mapCoords.lng}`,
+    ICBM: `${SITE.mapCoords.lat}, ${SITE.mapCoords.lng}`,
   },
 };
 
@@ -56,6 +101,8 @@ const localBusinessJsonLd = {
   name: SITE.name,
   description: SITE.description,
   url: SITE.url,
+  image: `${SITE.url}/hero-truck.jpg`,
+  logo: `${SITE.url}/logo-white.webp`,
   telephone: SITE.phoneHref,
   email: SITE.email,
   address: {
@@ -70,6 +117,14 @@ const localBusinessJsonLd = {
     latitude: SITE.mapCoords.lat,
     longitude: SITE.mapCoords.lng,
   },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
+  areaServed: { "@type": "Country", name: "Colombia" },
+  sameAs: [SITE.social.instagram, SITE.social.facebook],
 };
 
 export default function RootLayout({
@@ -89,11 +144,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <PageTransitionProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppFab />
-          <PromoVideoModal />
+          <CartProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppFab />
+            <PromoVideoModal />
+            <CartDrawer />
+          </CartProvider>
         </PageTransitionProvider>
       </body>
     </html>

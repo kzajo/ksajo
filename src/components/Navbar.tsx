@@ -9,6 +9,7 @@ import { NAV_LINKS, SITE } from "@/lib/site";
 import { CloseIcon, MenuIcon } from "@/components/icons";
 import { StaggerText } from "@/components/motion";
 import { usePageTransition } from "@/components/PageTransition";
+import { CartButton } from "@/components/CartButton";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -48,17 +49,23 @@ export function Navbar() {
               </li>
             );
           })}
+          <li>
+            <CartButton />
+          </li>
         </ul>
 
-        <button
-          type="button"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          className="cursor-pointer p-2 text-white md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <CartButton />
+          <button
+            type="button"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
+            className="cursor-pointer p-2 text-white"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {open && (

@@ -32,3 +32,16 @@ export type Product = {
   datasheet_url?: string | null;
   safety_sheet_url?: string | null;
 };
+/** Un ítem dentro del carrito de pedido (toma-pedido por WhatsApp). */
+export type CartItem = {
+  /** id del producto + presentación, único dentro del carrito */
+  key: string;
+  productId: string;
+  slug: string;
+  name: string;
+  brand: Brand;
+  imageUrl?: string | null;
+  /** Tamaño elegido, ej. "15 GAL". null si el producto no tiene presentaciones. */
+  presentacion: string | null;
+  quantity: number;
+};
