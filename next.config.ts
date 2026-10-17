@@ -41,6 +41,18 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      // URLs del sitio viejo (WordPress/estático) que Google todavía tiene indexadas.
+      // Redirigen a la categoría equivalente del catálogo nuevo en vez de dar 404.
+      { source: "/hidrengra.html", destination: "/catalogo?categoria=hidraulicos-engranajes", permanent: true },
+      { source: "/transdifer.html", destination: "/catalogo?categoria=transmisiones-diferenciales", permanent: true },
+      // Cualquier otra página .html vieja que aparezca: al catálogo general.
+      { source: "/:path*.html", destination: "/catalogo", permanent: true },
+      // Rutas de WordPress hackeado (spam) que Google rastreó en el dominio viejo.
+      { source: "/index.php/:path*", destination: "/", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
