@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ComponentType } from "react";
 import { BadgeIcon, DocumentIcon, DropletIcon, FlameIcon, FlaskIcon, LockIcon } from "@/components/icons";
 import { ScrollReveal } from "@/components/motion";
-import { whatsappLink } from "@/lib/site";
+import { SITE, whatsappLinkTo } from "@/lib/site";
  
 export const metadata: Metadata = {
   title: "Transporte",
@@ -200,7 +200,7 @@ export default function TransportePage() {
           </p>
           <div className="kz-rise mt-7 flex flex-wrap gap-3" style={{ animationDelay: "360ms" }}>
             <a
-              href={whatsappLink("Hola, quisiera información sobre el servicio de transporte de carga líquida.")}
+              href={whatsappLinkTo(SITE.transportWhatsappHref, "Hola, quisiera información sobre el servicio de transporte de carga líquida.")}
               target="_blank"
               rel="noopener noreferrer"
               className="kz-shine group relative inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90"
@@ -288,7 +288,7 @@ export default function TransportePage() {
             {/* Anillo pulsante detrás del botón */}
             <span aria-hidden="true" className="kz-ping absolute inset-0 rounded-lg bg-white/40" />
             <a
-              href={whatsappLink("Hola, quisiera solicitar una cotización de transporte de carga líquida.")}
+              href={whatsappLinkTo(SITE.transportWhatsappHref, "Hola, quisiera solicitar una cotización de transporte de carga líquida.")}
               target="_blank"
               rel="noopener noreferrer"
               className="kz-shine group relative inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-lg bg-white px-6 py-3 text-sm font-bold text-accent-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-xl hover:shadow-black/20"
