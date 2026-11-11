@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import "./xmas.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
@@ -9,6 +10,7 @@ import { PageTransitionProvider } from "@/components/PageTransition";
 import { SITE } from "@/lib/site";
 import { CartDrawer } from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cart-context";
+import ChristmasTheme from "@/components/ChristmasTheme";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -139,6 +141,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
+        <ChristmasTheme />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

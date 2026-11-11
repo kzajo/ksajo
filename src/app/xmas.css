@@ -1,0 +1,99 @@
+/* ==========================================================
+   Tema navideño: solo decorativo, no intercepta clics.
+   Se activa con NEXT_PUBLIC_XMAS=true
+   ========================================================== */
+
+.xmas-snow,
+.xmas-lights {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* ---------- Nieve ---------- */
+.xmas-snow {
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 40;
+}
+
+.xmas-snow span {
+  position: absolute;
+  top: -5%;
+  color: #fff;
+  /* Contorno azul oscuro para que se vea sobre fondos blancos */
+  -webkit-text-stroke: 1px #0d2b66;
+  text-shadow:
+    1px 0 0 #0d2b66,
+    -1px 0 0 #0d2b66,
+    0 1px 0 #0d2b66,
+    0 -1px 0 #0d2b66,
+    0 0 5px rgba(13, 43, 102, 0.6);
+  animation: xmas-fall linear infinite;
+}
+
+@keyframes xmas-fall {
+  to {
+    transform: translateY(105vh) translateX(30px) rotate(360deg);
+  }
+}
+
+/* ---------- Guirnalda de luces ---------- */
+.xmas-lights {
+  top: 0;
+  height: 18px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 60;
+}
+
+.xmas-lights i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  animation: xmas-blink 1.6s ease-in-out infinite;
+}
+
+.xmas-lights i:nth-child(4n + 1) { background: #e53935; box-shadow: 0 0 8px #e53935; }
+.xmas-lights i:nth-child(4n + 2) { background: #43a047; box-shadow: 0 0 8px #43a047; }
+.xmas-lights i:nth-child(4n + 3) { background: #fdd835; box-shadow: 0 0 8px #fdd835; }
+.xmas-lights i:nth-child(4n)     { background: #1e88e5; box-shadow: 0 0 8px #1e88e5; }
+
+@keyframes xmas-blink {
+  50% { opacity: 0.35; }
+}
+
+/* ---------- Papá Noel con trineo (imagen pequeña, esquina superior izquierda) ---------- */
+.xmas-sleigh {
+  position: absolute;
+  top: 78px;
+  left: 14px;
+  width: 170px;
+  max-width: 14vw;
+  height: auto;
+  z-index: 30;
+  pointer-events: none;
+  display: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+  animation: xmas-float 3.5s ease-in-out infinite;
+}
+
+@keyframes xmas-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-5px) rotate(1deg); }
+}
+
+/* Solo en pantallas anchas para no tapar el contenido del hero */
+@media (min-width: 1500px) {
+  .xmas-sleigh { display: block; }
+}
+
+/* ---------- Respeta a quien prefiere menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .xmas-snow { display: none; }
+  .xmas-lights i { animation: none; }
+  .xmas-sleigh { animation: none; }
+}
