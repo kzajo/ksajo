@@ -33,12 +33,8 @@ export default function ChristmasTheme() {
         ))}
       </div>
 
-      {/* Guirnalda de luces */}
-      <div className="xmas-lights" aria-hidden="true">
-        {Array.from({ length: 30 }).map((_, i) => (
-          <i key={i} style={{ animationDelay: `${(i % 5) * 0.4}s` }} />
-        ))}
-      </div>
+      {/* Guirnalda en el encabezado */}
+      <div className="xmas-garland" aria-hidden="true" />
 
       {/* Papá Noel con trineo (imagen) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
