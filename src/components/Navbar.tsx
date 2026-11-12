@@ -10,6 +10,7 @@ import { CloseIcon, MenuIcon } from "@/components/icons";
 import { StaggerText } from "@/components/motion";
 import { usePageTransition } from "@/components/PageTransition";
 import { CartButton } from "@/components/CartButton";
+import { HelpButton } from "@/components/HelpButton";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -53,11 +54,15 @@ export function Navbar() {
             );
           })}
           <li>
+            <HelpButton />
+          </li>
+          <li>
             <CartButton />
           </li>
         </ul>
 
         <div className="flex items-center gap-1 md:hidden">
+          <HelpButton />
           <CartButton />
           <button
             type="button"
