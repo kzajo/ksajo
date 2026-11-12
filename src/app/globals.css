@@ -17,6 +17,14 @@
   --color-canvas: #f5f7fb;
   --color-surface: #ffffff;
   --color-border: #e3e6ee;
+  --gradient-metallic: linear-gradient(
+    120deg,
+    var(--color-accent-dark) 0%,
+    var(--color-accent) 35%,
+    var(--color-accent-light) 50%,
+    var(--color-accent) 65%,
+    var(--color-accent-dark) 100%
+  );
 }
 
 @theme inline {

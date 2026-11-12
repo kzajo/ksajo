@@ -265,7 +265,7 @@ export default function TransportePage() {
       </section>
  
       {/* CTA */}
-      <section className="relative isolate overflow-hidden py-16 text-center text-white" style={{ background: "#1E4D8C" }}>
+      <section className="relative isolate overflow-hidden py-16 text-center text-white" style={{ backgroundImage: "var(--gradient-metallic)" }}>
         {/* Círculos flotantes y onda */}
         <div aria-hidden="true" className="kz-float absolute -left-10 top-6 -z-10 size-40 rounded-full bg-white/10 blur-xl" />
         <div

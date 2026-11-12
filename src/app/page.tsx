@@ -102,7 +102,7 @@ export default async function HomePage() {
       <HeroSlider />
 
       {/* Barra de indicadores — se conserva igual al diseño original */}
-      <section className="border-b border-white/10" style={{ background: "#1E4D8C" }}>
+      <section className="border-b border-white/10" style={{ backgroundImage: "var(--gradient-metallic)" }}>
         <div className="mx-auto grid max-w-4xl grid-cols-2 sm:grid-cols-4">
           {STATS.map((stat, i) => (
             <ScrollReveal key={stat.label} delayMs={i * 80}>

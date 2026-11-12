@@ -67,10 +67,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
       <motion.div
         aria-hidden
         className={`fixed inset-0 z-[999] origin-left overflow-hidden ${phase === "idle" ? "pointer-events-none" : ""}`}
-        style={{
-          backgroundImage:
-            "linear-gradient(120deg, var(--color-accent-dark) 0%, var(--color-accent) 30%, var(--color-accent-light) 50%, var(--color-accent) 70%, var(--color-accent-dark) 100%)",
-        }}
+        style={{ backgroundImage: "var(--gradient-metallic)" }}
         initial={false}
         animate={{ scaleX: visible ? 1 : 0 }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
