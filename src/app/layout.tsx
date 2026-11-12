@@ -5,7 +5,6 @@ import "./xmas.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { PromoVideoModal } from "@/components/PromoVideoModal";
 import { PageTransitionProvider } from "@/components/PageTransition";
 import { SITE } from "@/lib/site";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -152,7 +151,6 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
             <WhatsAppFab />
-            <PromoVideoModal />
             <CartDrawer />
           </CartProvider>
         </PageTransitionProvider>

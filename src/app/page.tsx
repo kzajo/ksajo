@@ -27,7 +27,7 @@ const SERVICES = [
     num: "02",
     title: "Transmisiones",
     body: "Cajas manuales, automáticas y diferenciales.",
-    gradient: "linear-gradient(135deg, #4F8FE8 0%, #123C7C 100%)",
+    gradient: "linear-gradient(135deg, #3B8FDE 0%, #14325E 100%)",
     image: "/service-transmisiones.png",
     imagePosition: "center 35%",
   },
@@ -102,7 +102,7 @@ export default async function HomePage() {
       <HeroSlider />
 
       {/* Barra de indicadores — se conserva igual al diseño original */}
-      <section className="border-b border-white/10" style={{ background: "#1a51a4" }}>
+      <section className="border-b border-white/10" style={{ backgroundImage: "var(--gradient-metallic)" }}>
         <div className="mx-auto grid max-w-4xl grid-cols-2 sm:grid-cols-4">
           {STATS.map((stat, i) => (
             <ScrollReveal key={stat.label} delayMs={i * 80}>
