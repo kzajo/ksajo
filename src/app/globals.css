@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Kzajo brand: blue #1A51A4, white, gray #6D6E71 */
-  --color-ink: #131c2b;
-  --color-ink-soft: #1d293d;
+  /* Kzajo brand (2026): paleta de azules metalizados */
+  --color-ink: #0a1628;
+  --color-ink-soft: #122238;
   --color-steel: #6d6e71;
   --color-steel-light: #97989b;
   --color-mist: #c7c8ca;
-  --color-accent: #1a51a4;
-  --color-accent-dark: #123c7c;
-  --color-accent-light: #5a8bd6;
+  --color-accent: #1e4d8c;
+  --color-accent-dark: #14325e;
+  --color-accent-light: #3b8fde;
+  --color-accent-glow: #9fd4f5;
   --color-maxter: #f91616;
   --color-petromil: #004f9e;
   --color-beg: #ce151a;
@@ -27,6 +28,7 @@
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
   --color-accent-light: var(--color-accent-light);
+  --color-accent-glow: var(--color-accent-glow);
   --color-maxter: var(--color-maxter);
   --color-petromil: var(--color-petromil);
   --color-beg: var(--color-beg);
