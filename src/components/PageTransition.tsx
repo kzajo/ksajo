@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 
 /** Inicio = blanco, Catálogo = negro (ink), Nosotros = azul, Contacto = gris — colores de marca. */
@@ -80,7 +81,19 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
             setPhase("idle");
           }
         }}
-      />
+      >
+        {(phase === "covering" || phase === "covered") && (
+          <div className="flex h-full w-full items-center justify-center">
+            <motion.div
+              className="grid size-16 place-items-center rounded-full bg-ink shadow-lg shadow-ink/30"
+              animate={{ scale: [0.92, 1.05, 0.92] }}
+              transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image src="/logo-white.webp" alt="" aria-hidden width={91} height={46} className="h-6 w-auto" />
+            </motion.div>
+          </div>
+        )}
+      </motion.div>
     </PageTransitionContext.Provider>
   );
 }
