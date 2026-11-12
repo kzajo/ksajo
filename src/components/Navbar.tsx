@@ -26,7 +26,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-accent shadow-md shadow-accent-dark/20">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <Image src="/logo-white.webp" alt={SITE.name} width={91} height={46} className="h-10 w-auto" priority />
+          <Image src="/logo-white.webp" alt={SITE.name} width={109} height={55} className="h-12 w-auto" priority />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -38,7 +38,7 @@ export function Navbar() {
                   href={link.href}
                   aria-label={link.label}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-[1.05rem] font-medium transition-colors ${
                     active ? "text-white" : "text-white/70 hover:text-white"
                   }`}
                 >
@@ -78,7 +78,7 @@ export function Navbar() {
                   setOpen(false);
                   handleNavClick(e, link.href);
                 }}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+                className="block rounded-lg px-3 py-2.5 text-[1.05rem] font-medium text-white/80 hover:bg-white/10 hover:text-white"
               >
                 {link.label}
               </Link>

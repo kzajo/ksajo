@@ -78,7 +78,7 @@ export function HeroSlider() {
             aria-label={`${i + 1} de ${slides.length}`}
             className="max-w-2xl"
           >
-            <p className="inline-flex items-center gap-2 rounded-full border border-accent-light/40 bg-accent/10 px-4 py-1.5 text-xs font-bold tracking-[0.16em] text-accent-light uppercase">
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold tracking-[0.16em] text-white uppercase">
               {s.etiqueta}
             </p>
             <h1 className="mt-6 font-heading text-4xl leading-[1.15] font-bold text-white sm:text-5xl">
