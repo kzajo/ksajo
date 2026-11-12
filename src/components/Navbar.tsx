@@ -23,7 +23,13 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-accent shadow-md shadow-accent-dark/20">
+    <header
+      className="sticky top-0 z-50 shadow-md shadow-accent-dark/20"
+      style={{
+        backgroundImage:
+          "linear-gradient(120deg, var(--color-accent-dark) 0%, var(--color-accent) 35%, var(--color-accent-light) 50%, var(--color-accent) 65%, var(--color-accent-dark) 100%)",
+      }}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image src="/logo-white.webp" alt={SITE.name} width={109} height={55} className="h-12 w-auto" priority />
