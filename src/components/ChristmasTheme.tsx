@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const ENABLED = process.env.NEXT_PUBLIC_XMAS === "true";
 
 export default function ChristmasTheme() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (!ENABLED) return;
     document.documentElement.classList.add("xmas");
     return () => document.documentElement.classList.remove("xmas");
   }, []);
+
+  // ubicación de la página: añadi la clase xmas-inner para bajar el contenido y que no tape los títulos
+  useEffect(() => {
+    if (!ENABLED) return;
+    const isHome = pathname === "/";
+    document.documentElement.classList.toggle("xmas-inner", !isHome);
+    return () => document.documentElement.classList.remove("xmas-inner");
+  }, [pathname]);
 
   if (!ENABLED) return null;
 
@@ -33,8 +44,9 @@ export default function ChristmasTheme() {
         ))}
       </div>
 
-      {/* Guirnalda en el encabezado */}
-      <div className="xmas-garland" aria-hidden="true" />
+      {/* Guirnaldas */}
+      <div className="xmas-garland xmas-garland--left" aria-hidden="true" />
+      <div className="xmas-garland xmas-garland--right" aria-hidden="true" />
 
       {/* Papá Noel con trineo (imagen) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}

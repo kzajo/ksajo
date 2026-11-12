@@ -19,14 +19,15 @@
   position: absolute;
   top: -5%;
   color: #fff;
-  /* Contorno azul oscuro para que se vea sobre fondos blancos */
-  -webkit-text-stroke: 1px #0d2b66;
+
+  /* Contorno azul muy fino */
+  -webkit-text-stroke: 0.3px rgba(13, 43, 102, 0.55);
+
+  /* Brillo suave */
   text-shadow:
-    1px 0 0 #0d2b66,
-    -1px 0 0 #0d2b66,
-    0 1px 0 #0d2b66,
-    0 -1px 0 #0d2b66,
-    0 0 5px rgba(13, 43, 102, 0.6);
+    0 0 2px rgba(13, 43, 102, 0.35),
+    0 0 5px rgba(255, 255, 255, 0.5);
+
   animation: xmas-fall linear infinite;
 }
 
@@ -38,7 +39,7 @@
 
 /* ---------- Guirnalda bajo el navbar ---------- */
 .xmas-garland {
-  /* Alto del navbar: ajústalo si el tuyo mide distinto */
+  /* Alto del navbar */
   --xmas-nav-h: 62px;
   /* Alto visible de la guirnalda */
   --xmas-garland-h: clamp(46px, 5.2vw, 100px);
@@ -88,4 +89,10 @@
 @media (prefers-reduced-motion: reduce) {
   .xmas-snow { display: none; }
   .xmas-sleigh { animation: none; }
+}
+
+/* ---------- Páginas internas: baja el contenido para no tapar títulos ---------- */
+html.xmas.xmas-inner main {
+  /* Cuánto se baja el contenido; sube o baja este valor */
+  padding-top: var(--xmas-push, 44px);
 }
