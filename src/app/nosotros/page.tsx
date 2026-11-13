@@ -5,6 +5,7 @@ import { ScrollReveal } from "@/components/motion";
 import { SmartImage } from "@/components/SmartImage";
 import { DropletIcon, FlameIcon, GaugeIcon } from "@/components/icons";
 import { SITE } from "@/lib/site";
+import { getSitePhotos } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -66,7 +67,9 @@ const BUSINESS_LINES = [
 },
 ];
 
-export default function NosotrosPage() {
+export default async function NosotrosPage() {
+  const photos = await getSitePhotos();
+
   return (
     <>
       {/* Encabezado */}
@@ -120,19 +123,19 @@ export default function NosotrosPage() {
           <ScrollReveal delayMs={100}>
             <div className="grid grid-cols-2 gap-4">
               <SmartImage
-                src="instalaciones.png"
+                src={photos.nosotros_instalaciones}
                 alt="Instalaciones de Kzajo"
                 etiquetaVacia="Foto de instalaciones"
                 className="col-span-2 aspect-[16/9] w-full rounded-2xl border border-border object-cover"
               />
               <SmartImage
-                src="bodega.png"
+                src={photos.nosotros_bodega}
                 alt="Bodega de almacenamiento"
                 etiquetaVacia="Foto de bodega"
                 className="aspect-square w-full rounded-2xl border border-border object-cover"
               />
               <SmartImage
-                src="equipo.png"
+                src={photos.nosotros_equipo}
                 alt="Equipo de trabajo"
                 etiquetaVacia="Foto del equipo"
                 className="aspect-square w-full rounded-2xl border border-border object-cover"

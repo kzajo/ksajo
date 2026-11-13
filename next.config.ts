@@ -22,6 +22,7 @@ const securityHeaders = [
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https://*.supabase.co",
+      "media-src 'self' https://*.supabase.co",
       "connect-src 'self' https://*.supabase.co",
       "font-src 'self'",
       "frame-src https://www.google.com",

@@ -1,28 +1,38 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-
-const ENABLED = process.env.NEXT_PUBLIC_XMAS === "true";
+import { getSiteSetting } from "@/lib/site-content";
 
 export default function ChristmasTheme() {
   const pathname = usePathname();
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (!ENABLED) return;
+    let cancelled = false;
+    getSiteSetting("xmas_enabled", false).then((value) => {
+      if (!cancelled) setEnabled(Boolean(value));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     document.documentElement.classList.add("xmas");
     return () => document.documentElement.classList.remove("xmas");
-  }, []);
+  }, [enabled]);
 
   // ubicación de la página: añadi la clase xmas-inner para bajar el contenido y que no tape los títulos
   useEffect(() => {
-    if (!ENABLED) return;
+    if (!enabled) return;
     const isHome = pathname === "/";
     document.documentElement.classList.toggle("xmas-inner", !isHome);
     return () => document.documentElement.classList.remove("xmas-inner");
-  }, [pathname]);
+  }, [pathname, enabled]);
 
-  if (!ENABLED) return null;
+  if (!enabled) return null;
 
   return (
     <>
@@ -50,12 +60,7 @@ export default function ChristmasTheme() {
 
       {/* Papá Noel con trineo (imagen) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/xmas/santa-trineo.png"
-        alt=""
-        aria-hidden="true"
-        className="xmas-sleigh"
-      />
+      <img src="/xmas/santa-trineo.png" alt="" aria-hidden="true" className="xmas-sleigh" />
     </>
   );
 }
